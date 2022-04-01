@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Montserrat:wght@100&family=Ubuntu:wght@300&display=swap');
+.top{
+  color: red;
+}
+.form-group{
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+.bot{
+  padding-top: 7rem;
+  background-color: black;
+  padding-left: 5rem;
+}
+.dateyy{
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 1.5rem;
+  padding-top: 1.5rem;
+}
+.timee{
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 1.5rem;
+  padding-top: 1.5rem;
+   
+}
+.pricee{
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 1.5rem;
+  padding-top: 1.5rem;
+}
+  .buttt{
+    width: 2px;
+  }
