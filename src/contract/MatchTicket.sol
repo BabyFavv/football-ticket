@@ -1,4 +1,4 @@
-  // SPDX-License-Identifier: MIT
+ // SPDX-License-Identifier: MIT
 
 pragma solidity >=0.7.0 <0.9.0;
 
@@ -16,10 +16,10 @@ interface IERC20Token {
  
  
 contract  MatchTicket {
-    
+    //Variable used as the index to store all tickets
     
     uint internal ticketsLength = 0;
-    address internal cUsdTokenAddress = 0x686c626E48bfC5DC98a30a9992897766fed4Abd3;
+    address internal cUsdTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
 
     struct  Ticket {
         address payable owner;
@@ -35,7 +35,7 @@ contract  MatchTicket {
 
       mapping (uint =>  Ticket) internal tickets;
 
- 
+//  function use to add ticket
     function  addTicket(
         string memory _image, 
         string memory _date,
@@ -61,7 +61,7 @@ contract  MatchTicket {
         ticketsLength++;
     }
    
-    
+    // returns tickets by index
     function getTicket(uint _index) public view returns (
         address payable,
         string memory,  
@@ -83,10 +83,13 @@ contract  MatchTicket {
              
         );
     }
+// this function is used to delete tickets
+       function Delete (uint _index)public{
+        require(tickets[_index].owner==msg.sender, "Error");
+        delete(tickets[_index]);
+    }
 
-
-
-
+// this function is used to change match date
       function changeMatchdate(uint _index, string memory _date) public {
         require(msg.sender == tickets[_index].owner, "Only creator can change the date");
         tickets[_index].date = _date;
@@ -94,7 +97,7 @@ contract  MatchTicket {
 
 
      }
-
+// this function is used to buy ticket
     function buyTicket(uint _index) public payable  {
         require(
           IERC20Token(cUsdTokenAddress).transferFrom(
@@ -108,7 +111,7 @@ contract  MatchTicket {
         tickets[_index].owner = payable(msg.sender);
          
     }
-     
+    //  this function returns the total number of tickets
     function getticketsLength() public view returns (uint) {
         return (ticketsLength);
     }
