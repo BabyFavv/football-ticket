@@ -1,6 +1,11 @@
  // SPDX-License-Identifier: MIT
+ // Note: 👆 The above line is mandatory to avoid compiler warnings like 
+(Warning: SPDX license identifier not provided in source file.) 
 
-pragma solidity >=0.7.0 <0.9.0;
+
+/* pragma keyword is used to enable certain compiler features or checks. */
+pragma solidity >=0.7.0 <0.9.0; // This is a version pragma
+
 
 interface IERC20Token {
   function transfer(address, uint256) external returns (bool);
