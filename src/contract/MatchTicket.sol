@@ -102,6 +102,14 @@ contract  MatchTicket {
 
 
      }
+
+
+     //this function is used to update the price of the tickets
+     function update_Price(uint _index, uint _price) public {
+          require(msg.sender == tickets[_index].owner);
+  tickets[_index].price = _price;
+
+     }
 // this function is used to buy ticket
     function buyTicket(uint _index) public payable  {
         require(
